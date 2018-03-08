@@ -8,10 +8,16 @@ My workaround consists in defining an anonymous function that takes the value of
 
 # Files
 ```
+Short.m: Solves Short's et al. PDE system with the following coefficients and initial value:
 acoeffunction.m: Coefficient a function for our PDE system
 ccoeffunction.m: Coefficient c function for our PDE system
 fcoeffunction.m: Coefficient f function for our PDE system
 u0fun.m: Initial value u0 function for our PDE system
+
+EnKF.m: Ensemble Kalman-Filter performing the aggregation between last aggregated solution simulated 
+        to the next time point with the observational data for that point.
+EnKF_ens_create.m: creates the ensemble
+EnKF_main.m: MAIN
 
 save_fig.m: saves all open plot windows as portable network graphics
 subplot4.m: Arranges the solutions as four subplots: artificial solution, 
