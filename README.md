@@ -2,9 +2,12 @@
 EnKF in Matlab for a system of two PDEs modeling burglar behavior (model of Short et al.) 
 
 ## Note:
-I have experienced several bugs in Matlab's solvepde() function. 
-For instance, the stated restart from the last time point does not work for systems of PDEs.
+I have experienced several bugs in Matlab's solvepde() function on Matlab R2016a. 
+- For instance, the stated restart from the last time point does not work for systems of PDEs.
 My workaround consists in defining an anonymous function that takes the value of the last (point of time of the) solution. This function is taken as the new initial value in the solution process.
+- Saving the workspace after a successful simulation, clearing all variables and loading the workspace will result in an error ("initial conditions either do not exist or are empty") trying to delete the initial condition model.deleteInitialCondition and setting a new one using SetInitialConditions via anonymous function on the loaded model. I guess some internal variable is missing. Workaround: Run the MAIN function for a couple of seconds and abort. This will apparently load the missing data.
+- When doing simulations, clearing all variables results in a small chance some internal variable still persists. 
+Since I don't own the Matlab license for the university version, my bugreport won't be even looked at.
 
 # Files
 ```
